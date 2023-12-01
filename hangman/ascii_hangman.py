@@ -1,11 +1,13 @@
-def draw_hangman(current_lives=-1, total_lives=7):
+def draw_hangman(lang, current_lives=-1, total_lives=7):
     """Outputs ASCII art of hangman.
     n - total num of lives
     lives - current num of lives (leave empty when user won),
     """
-    print(hangman[total_lives - current_lives])
-
-hangman = (
+    if lang == "eng":
+        print(hangman_eng[total_lives - current_lives])
+    else:
+        print(hangman_rus[total_lives - current_lives])
+hangman_eng = (
 """
    _________
     |/        
@@ -110,3 +112,110 @@ hangman = (
     |      |          
     |___  / \           
     SURVIVOR""")
+
+
+hangman_rus = (
+"""
+   _________
+    |/        
+    |              
+    |                
+    |                 
+    |               
+    |                   
+    |___                 
+    В""",
+
+"""
+   _________
+    |/   |      
+    |              
+    |                
+    |                 
+    |               
+    |                   
+    |___                 
+    ВИ""",
+
+"""
+   _________       
+    |/   |              
+    |   (_)
+    |                         
+    |                       
+    |                         
+    |                          
+    |___                       
+    ВИС""",
+
+"""
+   ________               
+    |/   |                   
+    |   (_)                  
+    |    |                     
+    |    |                    
+    |                           
+    |                            
+    |___                    
+    ВИСЕ""",
+
+
+"""
+   _________             
+    |/   |               
+    |   (_)                   
+    |   /|                     
+    |    |                    
+    |                        
+    |                          
+    |___                          
+    ВИСЕЛ""",
+
+
+"""
+   _________              
+    |/   |                     
+    |   (_)                     
+    |   /|\                    
+    |    |                       
+    |                             
+    |                            
+    |___                          
+    ВИСЕЛЕ""",
+
+
+
+"""
+   ________                   
+    |/   |                         
+    |   (_)                      
+    |   /|\                             
+    |    |                          
+    |   /                            
+    |                                  
+    |___                              
+    ВИСЕЛИЦ""",
+
+
+"""
+   ________
+    |/   |     
+    |   (_)    
+    |   /|\           
+    |    |        
+    |   / \        
+    |               
+    |___           
+    ВИСЕЛИЦА""",
+
+    
+    """
+   ________
+    |/   |     
+    |       
+    |             
+    |    \(_)/     
+    |      |     
+    |      |          
+    |___  / \           
+    ТЫ ВЫЖИЛ!""")
