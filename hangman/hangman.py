@@ -1,13 +1,3 @@
-#РУССИФИЦИРОВАТЬ:
-# 1. "виселица"  == 8 жизней
-#    "смерть"  ==  6 жизней 
-#    "умри"  ==  4 жизни
-# 2. hangman_game()  в отдельный файл мб?
-# 3. "Play again?" should be in Russian, if lang == rus
-# 4. if user plays again, ask lang again
-# 5. check len of russian list of words
-# 6. open json files lacally instead of from full directory
- 
 from ascii_hangman import draw_hangman
 import json
 import random
