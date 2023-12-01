@@ -7,9 +7,9 @@ import inflect
 def main():
     # open json files with English and Russian words
     with open(R"list_of_nouns.json") as eng_words:
-            e_words = json.load(eng_words)
+        e_words = json.load(eng_words)
     with open(R"list_of_nouns_rus.json") as rus_words:
-            r_words = json.load(rus_words)
+        r_words = json.load(rus_words)
 
     lives = 7  # Total number of lives
 
@@ -29,11 +29,15 @@ def main():
             if lang == "eng":
                 print(f"\nSorry, you died. ☠️\n\nThe word was: {word}\n")
             elif lang == "rus":    
-                print(f"\nК сожалению, ты был повешен. ☠️\n\nЗагаданное слово: {word}\n")
+                print(
+                    f"\nК сожалению, ты был повешен. ☠️\n\nЗагаданное слово: {word}\n"
+                )
         else:  # Victory
             draw_hangman(lang)  
             if lang == "eng":
-                print(f"\nCongratulations, you won! 🎉🎉🎉\n\nThe word was: {word}\n")  # Congratulatory message
+                print(
+                    f"\nCongratulations, you won! 🎉🎉🎉\n\nThe word was: {word}\n"
+                )  # Congratulatory message
             elif lang == "rus":
                 print(f"\nПоздравляю, ты победил! 🎉🎉🎉\n\nОтгаданное слово: {word}\n")  
 
@@ -42,7 +46,7 @@ def main():
             pass
         else:
             break
-
+        
 
 def hangman_game(lang, word, lives=7):
     """Hangman game. 7 lives by default."""
@@ -57,7 +61,7 @@ def hangman_game(lang, word, lives=7):
         life_str_eng = p.plural_noun('life', lives)  # use plural or singlular of "life" 
         if lives == 1:  # Russian "жизнь" with corresponding suffixes
             life_str_rus = "жизнь"
-        elif lives in [2,3,4]:
+        elif lives in [2, 3, 4]:
             life_str_rus = "жизни"
         else:
             life_str_rus = "жизней"
@@ -137,16 +141,25 @@ def hangman_game(lang, word, lives=7):
 
 def language_select():
     while True:
-        language = input("\n\nPlease select language / Пожалуйста, выберите язык:\n  1. ENGLISH\n  2. RUSSIAN / РУССКИЙ\n Enter/Ввод: ").strip().lower()
+        language = (
+            input(
+                "\n\nPlease select language / Пожалуйста, выберите язык:\n" \
+                "  1. ENGLISH\n  2. RUSSIAN / РУССКИЙ\n Enter/Ввод: "
+                )
+                .strip()
+                .lower())
         if (language.find("en") != -1) or (language.find("1") != -1):
             return "eng"
-        elif (language.find("ru") != -1) or (language.find("2") != -1) or (language.find("ру") != -1):
+        elif (
+            (language.find("ru") != -1)
+            or (language.find("2") != -1)
+            or (language.find("ру") != -1)
+        ):
             return "rus"
 
 
 def check_win(letter, word, used_list):
     """Function verifies if user has guessed all the letters and therefore won"""
-
     # Verify what letters of the word have been guessed
     verification_list = []
     for letter in word:
@@ -166,13 +179,20 @@ def play_again(lang):
     """Proposes user to play a game again"""
     while True:
         if lang == "eng":    
-            again = input("Do you want to play again? 🤔\n(type Yes or No): ").strip().lower()
+            again = (input("Do you want to play again? 🤔\n(type Yes or No): ")
+            .strip()
+            .lower()
+            )
             if again == "yes":
                 return True
             elif again == "no":
                 return False
         elif lang == "rus":
-            again = input("Хочешь сыграть снова? 🤔\n(Введите 'да' или 'нет'): ").strip().lower()
+            again = (
+                input("Хочешь сыграть снова? 🤔\n(Введите 'да' или 'нет'): ")
+                .strip()
+                .lower()
+            )
             if again == "да":
                 return True
             elif again == "нет":
