@@ -7,6 +7,7 @@ def draw_hangman(lang, current_lives=-1, total_lives=7):
         print(hangman_eng[total_lives - current_lives])
     else:
         print(hangman_rus[total_lives - current_lives])
+        
 hangman_eng = (
 """
    _________
