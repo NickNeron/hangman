@@ -3,6 +3,7 @@ import json
 import random
 import inflect
 
+
 def main():
     # open json files with English and Russian words
     with open(R"list_of_nouns.json") as eng_words:
@@ -41,7 +42,8 @@ def main():
             pass
         else:
             break
-        
+
+
 def hangman_game(lang, word, lives=7):
     """Hangman game. 7 lives by default."""
     p = inflect.engine()
@@ -78,7 +80,6 @@ def hangman_game(lang, word, lives=7):
             if len(used_letters) != 0:
                 print("\nТы уже использовал следующие буквы:", used_letters_str) 
             print("\nЗагаданное слово: ", end="")
-
 
         # Outputs blank for every unrevealed letter of the word,
         for letter in word:
