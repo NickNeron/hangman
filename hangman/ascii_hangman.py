@@ -1,6 +1,6 @@
 def draw_hangman(lang, current_lives=-1, total_lives=7):
     """Outputs ASCII art of hangman.
-    lang = language;
+    lang = selected language;
     n - total num of lives;
     lives - current num of lives (leave empty when user won),
     """
